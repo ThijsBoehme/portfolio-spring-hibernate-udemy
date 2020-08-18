@@ -12,6 +12,8 @@
     <title>Customer Confirmation</title>
 </head>
 <body>
-The customer is registered: ${customer.firstName} ${customer.lastName}
+<p>The customer is registered: ${customer.firstName} ${customer.lastName}</p>
+<p>Free passes: ${customer.freePasses}</p>
+<p>Postal code: ${customer.postalCode}</p>
 </body>
 </html>

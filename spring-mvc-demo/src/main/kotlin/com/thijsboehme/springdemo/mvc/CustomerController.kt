@@ -24,11 +24,6 @@ class CustomerController {
         @Valid @ModelAttribute("customer") customer: Customer,
         bindingResult: BindingResult
     ): String {
-
-        println("Processing the request")
-        println("customer: ${customer.firstName} ${customer.lastName}")
-        println("bindingResult: $bindingResult")
-
         return if (bindingResult.hasErrors()) {
             "customer-form"
         } else {
