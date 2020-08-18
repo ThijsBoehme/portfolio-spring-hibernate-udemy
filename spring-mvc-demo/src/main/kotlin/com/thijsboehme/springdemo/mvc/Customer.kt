@@ -1,5 +1,6 @@
 package com.thijsboehme.springdemo.mvc
 
+import com.thijsboehme.springdemo.mvc.validation.CourseCode
 import javax.validation.constraints.*
 
 class Customer {
@@ -17,4 +18,7 @@ class Customer {
 
     @Pattern(regexp = "^[a-zA-Z0-9]{5}", message = "only 5 chars/digits")
     var postalCode: String? = null
+
+    @CourseCode
+    var courseCode: String? = null
 }
