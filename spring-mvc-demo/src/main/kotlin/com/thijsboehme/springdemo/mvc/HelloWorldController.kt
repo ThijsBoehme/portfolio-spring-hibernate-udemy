@@ -12,13 +12,13 @@ class HelloWorldController {
     // Controller method to show the HTML form
     @RequestMapping("/showForm")
     fun showForm(): String {
-        return "helloWorld-form"
+        return "hello-world-form"
     }
 
     // Controller method to process the HTML form
     @RequestMapping("/processForm")
     fun processForm(): String {
-        return "helloworld"
+        return "hello-world"
     }
 
     // Controller method to read new form data and add data to the model
@@ -28,7 +28,7 @@ class HelloWorldController {
         name = name.toUpperCase()
         val result = "Yo! $name"
         model.addAttribute("message", result)
-        return "helloworld"
+        return "hello-world"
     }
 
     @RequestMapping("/processFormVersionThree")
@@ -36,6 +36,6 @@ class HelloWorldController {
         val uppercaseName = name.toUpperCase()
         val result = "Hey my friend $uppercaseName from v3!"
         model.addAttribute("message", result)
-        return "helloworld"
+        return "hello-world"
     }
 }
