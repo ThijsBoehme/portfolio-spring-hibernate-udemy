@@ -1,14 +1,12 @@
-package com.thijsboehme.demo.entity
+package com.thijsboehme.hibernate.demo.entity
 
-import javax.persistence.Column
-import javax.persistence.Entity
-import javax.persistence.Id
-import javax.persistence.Table
+import javax.persistence.*
 
 @Entity
 @Table(name = "student")
 class Student(
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     var id: Int,
 
