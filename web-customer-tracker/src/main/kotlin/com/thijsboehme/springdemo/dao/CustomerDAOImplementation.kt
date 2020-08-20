@@ -12,15 +12,26 @@ class CustomerDAOImplementation: CustomerDAO {
     private lateinit var sessionFactory: SessionFactory
 
     override fun getCustomers(): List<Customer> {
-        // Get the current hibernate session
+        // Get the current Hibernate session
         val session = sessionFactory.currentSession
 
         // Create a query
         // language=HQL
-        val query = session.createQuery("from Customer", Customer::class.java)
+        val query = session.createQuery(
+            "from Customer order by lastName",
+            Customer::class.java
+        )
 
         // Execute the query and get the results list
         // Return the results
         return query.resultList
+    }
+
+    override fun saveCustomer(customer: Customer) {
+        // Get current Hibernate session
+        val session = sessionFactory.currentSession
+
+        // Save the customer
+        session.save(customer)
     }
 }

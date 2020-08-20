@@ -2,11 +2,11 @@
 
 <!DOCTYPE html>
 <html>
-<header>
+<head>
     <title>List Customers</title>
 
     <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css">
-</header>
+</head>
 <body>
 <div id="wrapper">
     <div id="header">
@@ -15,6 +15,13 @@
 
     <div id="container">
         <div id="content">
+            <!-- Put new button: Add Customer -->
+            <input type="button"
+                   value="Add Customer"
+                   class="add-button"
+                   onclick="window.location.href='showFormForAdd'; return false;"/>
+
+            <!-- Add our HTML table here -->
             <table>
                 <tr>
                     <th>First Name</th>

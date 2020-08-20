@@ -7,7 +7,7 @@ import javax.persistence.*
 class Customer(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    var id: Int,
+    var id: Int = 0,
 
     @Column(name = "first_name")
     var firstName: String?,
@@ -18,7 +18,7 @@ class Customer(
     @Column(name = "email")
     var email: String?
 ) {
-    // constructor(firstName: String?, lastName: String?, email: String?): this(0, firstName, lastName, email)
+    constructor(): this(0, null, null, null)
 
     override fun toString(): String {
         return "Customer(id=$id, firstName=$firstName, lastName=$lastName, email=$email)"

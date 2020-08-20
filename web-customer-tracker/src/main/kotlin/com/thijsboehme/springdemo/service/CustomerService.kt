@@ -4,4 +4,5 @@ import com.thijsboehme.springdemo.entity.Customer
 
 interface CustomerService {
     fun getCustomers(): List<Customer>
+    fun saveCustomer(customer: Customer)
 }
