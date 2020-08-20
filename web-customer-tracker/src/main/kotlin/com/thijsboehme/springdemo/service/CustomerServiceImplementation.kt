@@ -21,4 +21,9 @@ class CustomerServiceImplementation: CustomerService {
     override fun saveCustomer(customer: Customer) {
         customerDAO.saveCustomer(customer)
     }
+
+    @Transactional
+    override fun getCustomer(id: Int): Customer? {
+        return customerDAO.getCustomer(id)
+    }
 }

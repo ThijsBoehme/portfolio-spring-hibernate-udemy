@@ -31,7 +31,15 @@ class CustomerDAOImplementation: CustomerDAO {
         // Get current Hibernate session
         val session = sessionFactory.currentSession
 
-        // Save the customer
-        session.save(customer)
+        // Save/Update the customer
+        session.saveOrUpdate(customer)
+    }
+
+    override fun getCustomer(id: Int): Customer? {
+        // Get current Hibernate session
+        val session = sessionFactory.currentSession
+
+        // Retrieve/read from the database using the primary key
+        return session.get(Customer::class.java, id)
     }
 }

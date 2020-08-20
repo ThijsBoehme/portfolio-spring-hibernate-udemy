@@ -6,10 +6,7 @@ import com.thijsboehme.springdemo.service.CustomerService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.ModelAttribute
-import org.springframework.web.bind.annotation.PostMapping
-import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.*
 
 @Controller
 @RequestMapping("/customer")
@@ -42,5 +39,17 @@ class CustomerController {
         customerService.saveCustomer(customer)
 
         return "redirect:/customer/list"
+    }
+
+    @GetMapping("/showFormForUpdate")
+    fun showFormForUpdate(@RequestParam("customerID") id: Int, model: Model): String {
+        // Get the customer from the database
+        val customer = customerService.getCustomer(id) ?: Customer()
+
+        // Set customer as a model attribute to pre-populate the form
+        model.addAttribute("customer", customer)
+
+        // Send over to the form
+        return "customer-form"
     }
 }
