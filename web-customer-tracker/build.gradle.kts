@@ -24,8 +24,9 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web:2.3.3.RELEASE")
     implementation("org.jetbrains.kotlin:kotlin-reflect:1.4.0")
     implementation("mysql:mysql-connector-java:8.0.21")
-    implementation("javax:javaee-api:7.0")
+    implementation("javax:javaee-api:8.0.1")
     implementation("com.mchange:c3p0:0.9.5.5")
+    implementation("javax.servlet:jstl:1.2")
 }
 
 tasks.withType<KotlinCompile>() {

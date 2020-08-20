@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServlet
 import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse
 
-@WebServlet(name = "TestDbServlet")
+@WebServlet(name = "TestDbServlet", value = ["/testdbservlet"])
 class TestDbServlet: HttpServlet() {
     override fun doGet(request: HttpServletRequest?, response: HttpServletResponse?) {
         // Setup connection variables
