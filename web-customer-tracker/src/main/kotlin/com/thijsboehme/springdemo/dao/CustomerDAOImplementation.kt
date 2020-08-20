@@ -42,4 +42,14 @@ class CustomerDAOImplementation: CustomerDAO {
         // Retrieve/read from the database using the primary key
         return session.get(Customer::class.java, id)
     }
+
+    override fun deleteCustomer(id: Int) {
+        // Get current Hibernate session
+        val session = sessionFactory.currentSession
+
+        // Delete object with primary key
+        val query = session.createQuery("delete from Customer where id=:customerID")
+        query.setParameter("customerID", id)
+        query.executeUpdate()
+    }
 }

@@ -1,6 +1,5 @@
 package com.thijsboehme.springdemo.controller
 
-import com.thijsboehme.springdemo.dao.CustomerDAO
 import com.thijsboehme.springdemo.entity.Customer
 import com.thijsboehme.springdemo.service.CustomerService
 import org.springframework.beans.factory.annotation.Autowired
@@ -51,5 +50,13 @@ class CustomerController {
 
         // Send over to the form
         return "customer-form"
+    }
+
+    @GetMapping("/delete")
+    fun delete(@RequestParam("customerID") id: Int, model: Model): String {
+        // Delete the customer
+        customerService.deleteCustomer(id)
+
+        return "redirect:/customer/list"
     }
 }

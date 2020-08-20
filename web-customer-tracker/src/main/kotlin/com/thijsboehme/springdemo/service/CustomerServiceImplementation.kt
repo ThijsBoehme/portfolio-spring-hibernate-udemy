@@ -26,4 +26,9 @@ class CustomerServiceImplementation: CustomerService {
     override fun getCustomer(id: Int): Customer? {
         return customerDAO.getCustomer(id)
     }
+
+    @Transactional
+    override fun deleteCustomer(id: Int) {
+        customerDAO.deleteCustomer(id)
+    }
 }
