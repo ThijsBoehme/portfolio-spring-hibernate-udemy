@@ -4,7 +4,6 @@ import com.thijsboehme.springdemo.entity.Customer
 import org.hibernate.SessionFactory
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Repository
-import org.springframework.transaction.annotation.Transactional
 
 @Repository
 class CustomerDAOImplementation: CustomerDAO {
@@ -12,7 +11,6 @@ class CustomerDAOImplementation: CustomerDAO {
     @Autowired
     private lateinit var sessionFactory: SessionFactory
 
-    @Transactional
     override fun getCustomers(): List<Customer> {
         // Get the current hibernate session
         val session = sessionFactory.currentSession
