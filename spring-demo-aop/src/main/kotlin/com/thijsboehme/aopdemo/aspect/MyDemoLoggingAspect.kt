@@ -10,8 +10,8 @@ class MyDemoLoggingAspect {
     // This is where we add all of our related advices for logging
 
     // Let's start with an @Before advice
-    @Before("execution(* add*())")
+    @Before("execution(* com.thijsboehme.aopdemo.dao.*.*(..))")
     fun beforeAddAccountAdvice() {
-        println("\n==========>>> Executing @Before advice on method addAccount()\n")
+        println("\n==========>>> Executing @Before advice on method")
     }
 }

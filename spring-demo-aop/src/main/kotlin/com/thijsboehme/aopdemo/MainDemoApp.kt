@@ -12,10 +12,12 @@ fun main() {
         val membershipDAO = context.getBean("membershipDAO", MembershipDAO::class.java)
 
         // Call business method
-        accountDAO.addAccount()
+        accountDAO.addAccount(Account(), true)
+        accountDAO.doWork()
 
         // Call the membership business method
         membershipDAO.addSillyMember()
+        membershipDAO.goToSleep()
 
         // Close the context
     }
