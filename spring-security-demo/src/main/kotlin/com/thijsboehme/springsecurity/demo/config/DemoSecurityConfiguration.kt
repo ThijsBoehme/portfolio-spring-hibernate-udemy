@@ -2,6 +2,7 @@ package com.thijsboehme.springsecurity.demo.config
 
 import org.springframework.context.annotation.Configuration
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder
+import org.springframework.security.config.annotation.web.builders.HttpSecurity
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter
 import org.springframework.security.core.userdetails.User
@@ -16,6 +17,16 @@ class DemoSecurityConfiguration: WebSecurityConfigurerAdapter() {
             ?.withUser(users.username("john").password("test123").roles("EMPLOYEE"))
             ?.withUser(users.username("mary").password("test123").roles("MANAGER"))
             ?.withUser(users.username("susan").password("test123").roles("ADMIN"))
+    }
 
+    override fun configure(http: HttpSecurity?) {
+        http?.authorizeRequests()
+            ?.anyRequest()
+            ?.authenticated()
+            ?.and()
+            ?.formLogin()
+            ?.loginPage("/showMyLoginPage")
+            ?.loginProcessingUrl("/authenticateTheUser")
+            ?.permitAll()
     }
 }
