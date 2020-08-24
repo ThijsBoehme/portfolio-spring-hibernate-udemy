@@ -9,4 +9,9 @@ class LoginController {
     fun showMyLoginPage(): String {
         return "fancy-login"
     }
+
+    @GetMapping("/access-denied")
+    fun showAccessDeniedPage(): String {
+        return "access-denied"
+    }
 }
