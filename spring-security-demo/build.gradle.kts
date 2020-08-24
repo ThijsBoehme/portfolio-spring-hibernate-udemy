@@ -24,6 +24,7 @@ dependencies {
     implementation("org.springframework:spring-webmvc")
     implementation("org.springframework.security:spring-security-web")
     implementation("org.springframework.security:spring-security-config")
+    implementation("org.springframework.security:spring-security-taglibs")
     implementation("javax.servlet:javax.servlet-api:3.1.0")
     implementation("javax.servlet.jsp:javax.servlet.jsp-api:2.3.1")
     implementation("javax.servlet:jstl:1.2")
