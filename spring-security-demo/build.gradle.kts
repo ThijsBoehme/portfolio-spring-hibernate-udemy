@@ -29,6 +29,8 @@ dependencies {
     implementation("javax.servlet.jsp:javax.servlet.jsp-api:2.3.1")
     implementation("javax.servlet:jstl:1.2")
     implementation("javax.xml.bind:jaxb-api:2.3.0")
+    implementation("mysql:mysql-connector-java:8.0.21")
+    implementation("com.mchange:c3p0:0.9.5.5")
     testImplementation("junit:junit:3.8.1")
 }
 
