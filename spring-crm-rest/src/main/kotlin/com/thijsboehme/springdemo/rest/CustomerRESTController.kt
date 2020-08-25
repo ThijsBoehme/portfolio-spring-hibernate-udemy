@@ -28,4 +28,10 @@ class CustomerRESTController(
         customerService.saveCustomer(customer)
         return customer
     }
+
+    @PutMapping("/customers")
+    fun updateCustomer(@RequestBody customer: Customer): Customer {
+        customerService.saveCustomer(customer)
+        return customer
+    }
 }
