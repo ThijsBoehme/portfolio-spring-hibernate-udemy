@@ -34,6 +34,8 @@ class StudentRESTController {
 
     @GetMapping("/students/{studentID}")
     fun getStudent(@PathVariable studentID: Int): Student {
+        // Check studentID against list size
+        if ((studentID >= studentList.size) || (studentID < 0)) throw StudentNotFoundException("Student id not found: $studentID")
         return studentList[studentID]
     }
 }
