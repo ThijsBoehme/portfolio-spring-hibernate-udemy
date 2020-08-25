@@ -10,4 +10,14 @@ class FunRESTController {
     fun sayHello(): String {
         return "Hello World! Time on the server is ${LocalDateTime.now()}"
     }
+
+    @GetMapping("/workout")
+    fun getDailyWorkout(): String {
+        return "Run a hard 5k!"
+    }
+
+    @GetMapping("/fortune")
+    fun getFortune(): String {
+        return "Today is your lucky day!"
+    }
 }
