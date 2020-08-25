@@ -1,36 +1,27 @@
 package com.thijsboehme.springboot.cruddemo.service
 
-import com.thijsboehme.springboot.cruddemo.dao.EmployeeDAO
+import com.thijsboehme.springboot.cruddemo.dao.EmployeeRepository
 import com.thijsboehme.springboot.cruddemo.entity.Employee
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 
 @Service
-class EmployeeServiceImplementation(
-    @Qualifier("employeeDAOJPAImplementation")
-    @Autowired
-    private val employeeDAO: EmployeeDAO
-): EmployeeService {
-    
-    @Transactional
-    override fun findAll(): List<Employee> {
-        return employeeDAO.findAll()
-    }
+class EmployeeServiceImplementation(@Autowired private val employeeRepository: EmployeeRepository): EmployeeService {
 
     @Transactional
-    override fun findByID(id: Int): Employee? {
-        return employeeDAO.findByID(id)
-    }
+    override fun findAll(): List<Employee> = employeeRepository.findAll()
+
+    @Transactional
+    override fun findByID(id: Int): Employee? = employeeRepository.findById(id).orElse(null)
 
     @Transactional
     override fun save(employee: Employee) {
-        employeeDAO.save(employee)
+        employeeRepository.save(employee)
     }
 
     @Transactional
     override fun deleteByID(id: Int) {
-        employeeDAO.deleteByID(id)
+        employeeRepository.deleteById(id)
     }
 }
