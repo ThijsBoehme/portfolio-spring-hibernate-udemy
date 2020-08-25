@@ -3,11 +3,17 @@ package com.thijsboehme.springboot.cruddemo.service
 import com.thijsboehme.springboot.cruddemo.dao.EmployeeDAO
 import com.thijsboehme.springboot.cruddemo.entity.Employee
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 
 @Service
-class EmployeeServiceImplementation(@Autowired private val employeeDAO: EmployeeDAO): EmployeeService {
+class EmployeeServiceImplementation(
+    @Qualifier("employeeDAOJPAImplementation")
+    @Autowired
+    private val employeeDAO: EmployeeDAO
+): EmployeeService {
+    
     @Transactional
     override fun findAll(): List<Employee> {
         return employeeDAO.findAll()
