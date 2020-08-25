@@ -3,10 +3,7 @@ package com.thijsboehme.springdemo.rest
 import com.thijsboehme.springdemo.entity.Customer
 import com.thijsboehme.springdemo.service.CustomerService
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.PathVariable
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("/api")
@@ -23,5 +20,12 @@ class CustomerRESTController(
     fun getCustomer(@PathVariable customerID: Int): Customer {
         return customerService.getCustomer(customerID)
             ?: throw CustomerNotFoundException("Customer not found for ID '$customerID'")
+    }
+
+    @PostMapping("/customers")
+    fun addCustomer(@RequestBody customer: Customer): Customer {
+        customer.id = 0
+        customerService.saveCustomer(customer)
+        return customer
     }
 }
