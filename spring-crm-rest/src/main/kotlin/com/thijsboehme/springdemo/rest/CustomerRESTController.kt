@@ -34,4 +34,13 @@ class CustomerRESTController(
         customerService.saveCustomer(customer)
         return customer
     }
+
+    @DeleteMapping("/customers/{customerID}")
+    fun deleteCustomer(@PathVariable customerID: Int): String {
+        customerService.getCustomer(customerID)
+            ?: throw CustomerNotFoundException("Customer not found for ID '$customerID'")
+        
+        customerService.deleteCustomer(customerID)
+        return "Deleted customer with ID '$customerID'"
+    }
 }
