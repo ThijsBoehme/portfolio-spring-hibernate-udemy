@@ -21,6 +21,7 @@ class CustomerRESTController(
 
     @GetMapping("/customers/{customerID}")
     fun getCustomer(@PathVariable customerID: Int): Customer {
-        return customerService.getCustomer(customerID) ?: throw RuntimeException("Customer not found")
+        return customerService.getCustomer(customerID)
+            ?: throw CustomerNotFoundException("Customer not found for ID '$customerID'")
     }
 }
