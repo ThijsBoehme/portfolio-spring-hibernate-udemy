@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+
+    <!-- Bootstrap CSS -->
+    <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" rel="stylesheet">
+
+    <title>Save Employee</title>
+</head>
+
+<body>
+<div class="container">
+    <h1>Employee Directory</h1>
+    <hr/>
+
+    <p class="h4 mb-4">Save Employee</p>
+
+    <form action="#"
+          method="post"
+          th:action="@{/employees/save}"
+          th:object="${employee}">
+
+        <input th:field="*{id}"
+               type="hidden">
+
+        <input class="form-control mb-4 col-4"
+               placeholder="First name"
+               th:field="*{firstName}"
+               type="text"/>
+        <input class="form-control mb-4 col-4"
+               placeholder="Last name"
+               th:field="*{lastName}"
+               type="text"/>
+        <input class="form-control mb-4 col-4"
+               placeholder="Email"
+               th:field="*{email}"
+               type="text"/>
+
+        <button class="btn btn-info col-2" type="submit">Save</button>
+    </form>
+
+    <hr/>
+
+    <a th:href="@{/employees/list}">Back to Employees List</a>
+</div>
+
+<script crossorigin="anonymous"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script crossorigin="anonymous"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script crossorigin="anonymous"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
