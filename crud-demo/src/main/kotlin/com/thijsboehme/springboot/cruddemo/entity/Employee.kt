@@ -18,10 +18,4 @@ class Employee(
 
     @Column(name = "email")
     var email: String?
-) {
-    constructor(firstName: String?, lastName: String?, email: String?): this(0, firstName, lastName, email)
-
-    override fun toString(): String {
-        return "Employee(id=$id, firstName=$firstName, lastName=$lastName, email=$email)"
-    }
-}
+)
